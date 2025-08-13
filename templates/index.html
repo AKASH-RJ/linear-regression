@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuel Efficiency Estimator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fuel Consumption Estimator</h1>
+        <form method="POST">
+            <label>Speed (km/h):</label>
+            <input type="number" name="speed" required><br>
+            <label>Engine Size (liters):</label>
+            <input type="number" step="0.1" name="engine" required><br>
+            <label>Weight (kg):</label>
+            <input type="number" name="weight" required><br>
+            <input type="submit" value="Estimate Fuel Efficiency">
+        </form>
+
+        {% if prediction is not none %}
+            <h2>Estimated Fuel Efficiency: {{ prediction }} km/l</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
